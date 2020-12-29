@@ -1,7 +1,19 @@
-import pyttx3
+import pyttsx3
+import PyPDF2
 
-speaker = pyttx3.init()
 
-speaker.say('LOOK i can talk')
+book = open('audio.pdf','rb')
+pdfReader = PyPDF2.PdfFileReader(book)
+pages = pdfReader.numPages
+print(pages)
 
-speaker.runAndWait()
+
+speaker = pyttsx3.init()
+for num in range(7,pages)
+    page = pdfReader.getPage(7)
+
+    text = page.extractText()
+
+    speaker.say(text)
+
+    speaker.runAndWait()
